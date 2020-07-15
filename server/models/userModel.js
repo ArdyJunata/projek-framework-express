@@ -66,7 +66,6 @@ user.delete = (id) => {
 }
 
 user.update = (id, user) => {
-
     return new Promise((resolve, reject) => {
         pool.query(`UPDATE user set name = ?, email = ?, address = ?, city = ?, province = ?, role_id = ?  WHERE id = ?`, [user.name, user.email, user.address, user.city, user.province, user.role_id, id], (err, results) => {
             if (err) {

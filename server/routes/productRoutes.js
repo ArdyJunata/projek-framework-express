@@ -6,7 +6,8 @@ const {
     productById,
     productUpdate,
     productDelete,
-    productFindAll
+    productFindAll,
+    productCount
 } = require('../controllers/productController')
 
 const router = express.Router();
@@ -18,6 +19,8 @@ router.get("/:id", productById)
 router.delete("/:id", productDelete)
 
 router.get("/", productFindAll)
+
+router.get("/count/:id", productCount)
 
 router.post("/", productCreate)
 

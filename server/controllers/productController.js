@@ -98,3 +98,16 @@ exports.productFindAll = async (req, res) => {
         })
     }
 }
+
+exports.productCount = async (req, res) => {
+    try {
+        const data = await Product.count();
+        res.status(200).json({
+            data
+        })
+    } catch (err) {
+        res.status(500).json({
+            error: err
+        })
+    }
+}

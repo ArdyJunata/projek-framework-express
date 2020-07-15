@@ -63,6 +63,18 @@ product.delete = (id) => {
 
 }
 
+product.count = () => {
+
+    return new Promise((resolve, reject) => {
+        pool.query(`SELECT COUNT(*) as count from products`, (err, results) => {
+            if (err) {
+                return reject(err)
+            }
+            return resolve(results)
+        })
+    })
+}
+
 product.all = () => {
 
     return new Promise((resolve, reject) => {
@@ -74,5 +86,7 @@ product.all = () => {
         })
     })
 }
+
+
 
 module.exports = product
